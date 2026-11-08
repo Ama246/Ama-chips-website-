@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-cream font-sans text-cocoa antialiased;
+  }
+
+  h1,
+  h2,
+  h3 {
+    @apply font-display;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+  }
+
+  /* Keyboard focus ring: dark on light areas, light gold on dark areas. */
+  :focus-visible {
+    outline: 2px solid #2b1a10;
+    outline-offset: 3px;
+  }
+  .focus-light :focus-visible {
+    outline-color: #e6cb84;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-6xl px-5 sm:px-8;
+  }
+
+  .btn-gold {
+    @apply inline-flex items-center justify-center rounded-full bg-gold px-6 py-3 text-base font-semibold text-cocoa transition duration-200 hover:bg-gold-light active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .btn-dark {
+    @apply inline-flex items-center justify-center rounded-full bg-cocoa px-6 py-3 text-base font-semibold text-cream transition duration-200 hover:bg-cocoa-soft active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .btn-outline-light {
+    @apply inline-flex items-center justify-center rounded-full border border-cream/40 px-6 py-3 text-base font-semibold text-cream transition duration-200 hover:border-gold hover:text-gold-light active:scale-[0.98];
+  }
+
+  .btn-outline-dark {
+    @apply inline-flex items-center justify-center rounded-full border border-cocoa/30 px-6 py-3 text-base font-semibold text-cocoa transition duration-200 hover:border-gold-deep hover:bg-cocoa/5 active:scale-[0.98];
+  }
+
+  .field {
+    @apply w-full rounded-xl border border-cocoa/25 bg-white px-4 py-3 text-base text-cocoa placeholder:text-cocoa/45 transition focus:border-gold-deep;
+  }
+}
