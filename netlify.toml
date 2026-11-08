@@ -1,0 +1,12 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# Makes pages like /shop and /cart work when someone refreshes or shares the link.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
